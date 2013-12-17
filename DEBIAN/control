@@ -1,0 +1,9 @@
+Package: run-once
+Version: 0.1~precise
+Section: main
+Priority: optional
+Architecture: all
+Essential: no
+Depends: coreutils
+Maintainer: Nevyn Hira <nevynh@gmail.com>
+Description: Adds scripts to run a command once and only once.

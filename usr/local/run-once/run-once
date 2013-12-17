@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#enabled="/home/nevyn/Dropbox/run-once/usr/local/run-once/scripts-enabled"
+#available="/home/nevyn/Dropbox/run-once/usr/local/run-once/scripts-available"
+#moved="$available/moved"
+
+enabled="/usr/local/run-once/scripts-enabled"
+available="/usr/local/run-once/scripts-available"
+moved="$available/moved"
+
+if [ -d "$enabled" ] ; then
+    for file in "$enabled"/* ; do
+        if [ -x "$file" ] ; then
+            # make sure scripts are owned by root
+            if [ "$( stat -c "%U" )" == "root" ] ; then
+                eval $file
+            else
+                echo "$file not owned by root"
+            fi
+            if [ ! -L "$file" ] ; then
+                echo "$file is not a symbolic link. Moving to $moved"
+                if [ ! -d "$moved" ] ; then
+                    mkdir -p "$moved"
+                fi
+                mv "$file" "$moved"
+            else
+                rm "$file"
+            fi
+        else
+            echo "$file is not executable."
+        fi
+    done
+fi
