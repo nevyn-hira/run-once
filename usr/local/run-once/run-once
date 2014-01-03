@@ -4,8 +4,9 @@
 #available="/home/nevyn/Dropbox/run-once/usr/local/run-once/scripts-available"
 #moved="$available/moved"
 
-enabled="/usr/local/run-once/scripts-enabled"
-available="/usr/local/run-once/scripts-available"
+ROOT="/usr/local/share/run-once"
+enabled="$ROOT/scripts-enabled"
+available="$ROOT/scripts-available"
 moved="$available/moved"
 
 if [ -d "$enabled" ] ; then
