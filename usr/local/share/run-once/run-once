@@ -13,7 +13,7 @@ if [ -d "$enabled" ] ; then
     for file in "$enabled"/* ; do
         if [ -x "$file" ] ; then
             # make sure scripts are owned by root
-            if [ "$( stat -c "%U" )" == "root" ] ; then
+            if [ "$( stat -c "%U" "$file" )" == "root" ] ; then
                 eval $file
             else
                 echo "$file not owned by root"
