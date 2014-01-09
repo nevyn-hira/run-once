@@ -1,5 +1,5 @@
 Package: run-once
-Version: 0.3~precise
+Version: 0.3.1~precise
 Section: main
 Priority: optional
 Architecture: all
