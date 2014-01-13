@@ -1,5 +1,5 @@
 #!/bin/bash
 
-if [ "$1"=="start" ] ; then
+if [ "$1" == "start" ] ; then
   /usr/local/share/run-once/run-once
 fi
